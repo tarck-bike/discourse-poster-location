@@ -1,6 +1,6 @@
 # name: discourse-poster-location
 # about: Show User's location in posts
-# version: 1.0.1
+# version: 1.0.2
 # author: Zach Nedwich <zach@znedw.com>
 # url: https://github.com/zachnedwich/discourse-poster-location
 
@@ -38,4 +38,5 @@ after_initialize do
 end
 
 # not needed but if we want to style Location, do it here
+register_asset "javascripts/discourse/templates/connectors/user-custom-preferences/user-posterlocation-preferences.hbs"
 register_asset "stylesheets/posterlocation.scss"
