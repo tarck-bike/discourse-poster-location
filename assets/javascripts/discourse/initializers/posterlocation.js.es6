@@ -22,7 +22,7 @@ function initializePosterLocation(api, siteSettings) {
     }
 
     return dec.h('span', [
-      dec.h('i', dec.h('fa fa-map-marker d-icon d-icon-map-marker')),
+      dec.h('i', { className: 'fa fa-map-marker d-icon d-icon-map-marker' }),
       dec.h('span', { text: result }),
     ], 
     { className: 'location' });
