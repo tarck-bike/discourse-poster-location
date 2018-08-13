@@ -20,12 +20,8 @@ function initializePosterLocation(api, siteSettings) {
     if (!result || result === 'none') {
       return;
     }
-    let final = dec.h('span', { children: [
-        dec.h('i', { className: 'fa fa-map-marker d-icon d-icon-map-marker' }),
-        dec.h('span',result),
-      ], className: 'location' });
 
-    return final;
+    return dec.h('span', result);
   });
 }
 
