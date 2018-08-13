@@ -1,6 +1,6 @@
 # name: discourse-poster-location
 # about: Show User's location in posts
-# version: 1.0.6
+# version: 1.0.7
 # author: Zach Nedwich <zach@znedw.com>
 # url: https://github.com/zachnedwich/discourse-poster-location
 

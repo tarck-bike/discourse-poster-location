@@ -21,11 +21,10 @@ function initializePosterLocation(api, siteSettings) {
       return;
     }
 
-    return dec.h('span', [
-      dec.h('i', { className: 'fa fa-map-marker d-icon d-icon-map-marker' }),
-      dec.h('span', { text: result }),
-    ], 
-    { className: 'location' });
+    return dec.h('span', { children: [
+        dec.h('i', { className: 'fa fa-map-marker d-icon d-icon-map-marker' }),
+        dec.h('span', { text: result }),
+      ], className: 'location' });
   });
 }
 
