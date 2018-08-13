@@ -11,10 +11,10 @@ function initializePosterLocation(api, siteSettings) {
 
   api.decorateWidget('poster-name:after', dec => {
     let result = 'none';
-    // see if we actually have the location...
-    console.log(dec.attrs, dec.attrs.userCustomFields);
-    if (dec.attrs && dec.attrs.userCustomFields.location) {
-      result = dec.attrs.userCustomFields.location;
+
+    if (dec.attrs && dec.attrs.userCustomFields && 
+      dec.attrs.userCustomFields.posterlocation) {
+      result = dec.attrs.userCustomFields.posterlocation;
     }
 
     if (!result || result === 'none') {
