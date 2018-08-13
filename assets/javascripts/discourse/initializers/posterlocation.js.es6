@@ -21,7 +21,7 @@ function initializePosterLocation(api, siteSettings) {
       return;
     }
 
-    return dec.h('span', result);
+    return dec.h('span', `📍 ${result}`);
   });
 }
 
