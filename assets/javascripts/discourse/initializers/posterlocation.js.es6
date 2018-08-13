@@ -1,8 +1,6 @@
-import {h} from 'virtual-dom';
-import {withPluginApi} from 'discourse/lib/plugin-api';
-import {ajax} from 'discourse/lib/ajax';
-
-// import Ember from 'ember';
+import { h } from 'virtual-dom';
+import { withPluginApi } from 'discourse/lib/plugin-api';
+import { ajax } from 'discourse/lib/ajax';
 
 function initializePosterLocation(api, siteSettings) {
   const posterlocation_enabled = siteSettings.posterlocation_enabled;
@@ -13,26 +11,26 @@ function initializePosterLocation(api, siteSettings) {
 
   api.decorateWidget('poster-name:after', dec => {
     let result = 'none';
-
+    // see if we actually have the location...
+    console.log(dec.attrs, dec.attrs.userCustomFields);
     if (dec.attrs && dec.attrs.userCustomFields.location) {
       result = dec.attrs.userCustomFields.location;
-      // Ember.Logger.debug(result)
     }
 
     if (!result || result === 'none') {
-      // Ember.Logger.debug('NOT FOUND!')
       return;
     }
 
-    return dec.h('span', {
-      className: "posterlocation",
-      text: result
-    });
+    return dev.h('span', [
+      helper.h('i', helper.h('fa fa-map-marker d-icon d-icon-map-marker')),
+      helper.h('span', { text: result }),
+    ], 
+    { className: 'location' });
   });
 }
 
 export default {
-  name : 'posterlocation',
+  name: 'posterlocation',
   initialize(container) {
     const siteSettings = container.lookup('site-settings:main');
     withPluginApi('0.1', api => initializePosterLocation(api, siteSettings));
