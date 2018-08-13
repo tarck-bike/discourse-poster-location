@@ -21,9 +21,9 @@ function initializePosterLocation(api, siteSettings) {
       return;
     }
 
-    return dev.h('span', [
-      helper.h('i', helper.h('fa fa-map-marker d-icon d-icon-map-marker')),
-      helper.h('span', { text: result }),
+    return dec.h('span', [
+      dec.h('i', dec.h('fa fa-map-marker d-icon d-icon-map-marker')),
+      dec.h('span', { text: result }),
     ], 
     { className: 'location' });
   });
