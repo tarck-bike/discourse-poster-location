@@ -21,7 +21,7 @@ function initializePosterLocation(api, siteSettings) {
       return;
     }
 
-    return dec.h('span', `📍 ${result}`);
+    return dec.h("span.location", [ dec.h("i.fa.fa-map-marker.d-icon.d-icon-map-marker"), " ", dec.h("span", [ result ]) ]);
   });
 }
 
