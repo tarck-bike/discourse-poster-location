@@ -20,11 +20,24 @@ function initializePosterLocation(api, siteSettings) {
     if (!result || result === 'none') {
       return;
     }
+    let final = dec.h('span', { children: [
+        dec.h('i', { className: 'fa fa-map-marker d-icon d-icon-map-marker' }),
+        dec.h('span', { attributes: { text: result } }),
+      ], className: 'location' });
 
+    return dec.h('span', {
+      className: "location",
+      attributes: {
+        text: result
+      }
+    });
+
+    /*
     return dec.h('span', { children: [
         dec.h('i', { className: 'fa fa-map-marker d-icon d-icon-map-marker' }),
         dec.h('span', { text: result }),
       ], className: 'location' });
+      */
   });
 }
 
