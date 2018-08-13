@@ -1,12 +1,9 @@
-# Discourse National Flags Plugin
+# Discourse Poster Location Plugin
 
-Allows a user-defined National Flag image to be displayed in posts
+Show User's location in posts
 
 ## Example
 ![](example.PNG)
-
-## User Settings
-![](example2.PNG)
 
 # Installing
 
@@ -20,7 +17,7 @@ hooks:
         cmd:
           - mkdir -p plugins
           - git clone https://github.com/discourse/docker_manager.git
-          - git clone https://github.com/Ebsy/discourse-nationalflags.git
+          - git clone https://github.com/zachnedwich/discourse-poster-location.git
 ```
 
 * Rebuild the container
@@ -36,4 +33,4 @@ See https://meta.discourse.org/t/install-a-plugin/19157/14
 
 # License
 
-MIT
+BSD (2-clause)
