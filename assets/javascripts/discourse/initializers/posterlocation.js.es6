@@ -20,8 +20,8 @@ function initializePosterLocation(api, siteSettings) {
     if (!result || result === 'none') {
       return;
     }
-
-    return dec.h("span.location", [ dec.h("i.fa.fa-map-marker.d-icon.d-icon-map-marker"), " ", dec.h("span", [ result ]) ]);
+    
+    return dec.h("i.fa.fa-map-marker.d-icon.d-icon-map-marker", [ ` ${result}` ]);
   });
 }
 
