@@ -1,6 +1,6 @@
 # name: discourse-poster-location
 # about: Show User's location in posts
-# version: 1.0.13
+# version: 1.0.14
 # author: Zach Nedwich <zach@znedw.com>
 # url: https://github.com/zachnedwich/discourse-poster-location
 
@@ -21,6 +21,8 @@ after_initialize do
   end
 
   User.register_custom_field_type('posterlocation', :text)
+
+  register_editable_user_custom_field :posterlocation if defined? register_editable_user_custom_field
 
   if SiteSetting.posterlocation_enabled then
     add_to_serializer(:post, :user_signature, false) {
