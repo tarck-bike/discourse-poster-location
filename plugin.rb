@@ -38,7 +38,3 @@ after_initialize do
     }
   end
 end
-
-# not needed but if we want to style Location, do it here
-register_asset "javascripts/discourse/templates/connectors/user-custom-preferences/user-posterlocation-preferences.hbs"
-register_asset "stylesheets/posterlocation.scss"
