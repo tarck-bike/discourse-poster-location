@@ -1,34 +1,39 @@
-import { h } from 'virtual-dom';
-import { withPluginApi } from 'discourse/lib/plugin-api';
-import { ajax } from 'discourse/lib/ajax';
+import Component from "@glimmer/component";
+import { withPluginApi } from "discourse/lib/plugin-api";
 
-function initializePosterLocation(api, siteSettings) {
-  const posterlocation_enabled = siteSettings.posterlocation_enabled;
+function initializePosterLocation(api) { 
+  api.renderAfterWrapperOutlet(
+    "post-meta-data-poster-name", 
+    class extends Component {
+      location = '';
+      static shouldRender(args) {
+        let result = 'none';
 
-  if (!posterlocation_enabled) {
-    return;
-  }
+        if (args.post?.user && args.post?.user.userCustomFields && 
+          args.post?.user.userCustomFields.posterlocation) {
+          result = args.post?.user.userCustomFields.posterlocation;
+        }
 
-  api.decorateWidget('poster-name:after', dec => {
-    let result = 'none';
-
-    if (dec.attrs && dec.attrs.userCustomFields && 
-      dec.attrs.userCustomFields.posterlocation) {
-      result = dec.attrs.userCustomFields.posterlocation;
+        if (!result || result === 'none') {
+          return false;
+        }
+        location = result;
+        return true;
+      }
+      
+      <template>
+        <i class="fa fa-map-marker d-icon d-icon-map-marker" aria-hidden="true"></i><span>{{location}}</span>
+      </template>
     }
-
-    if (!result || result === 'none') {
-      return;
-    }
-    
-    return dec.h("i.fa.fa-map-marker.d-icon.d-icon-map-marker", [ ` ${result}` ]);
-  });
+  );
 }
 
 export default {
   name: 'posterlocation',
   initialize(container) {
-    const siteSettings = container.lookup('site-settings:main');
-    withPluginApi('0.1', api => initializePosterLocation(api, siteSettings));
+    const siteSettings = container.lookup("service:site-settings");
+    if(siteSettings.posterlocation_enabled) {
+      withPluginApi(api => initializePosterLocation(api, siteSettings));
+    }
   }
 };
