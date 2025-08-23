@@ -1,18 +1,21 @@
 import Component from "@glimmer/component";
+import { tracked } from '@glimmer/tracking';
 import { withPluginApi } from "discourse/lib/plugin-api";
 
 class PosterLocation extends Component {
-  location = "";
-  static shouldRender(args) {
-     this.location = args.user?.custom_fields?.posterlocation ?? "none";
-     return this.location && this.location !== "none";
+  @tracked location = "";
+
+  constructor() {
+    super(...arguments);
+    this.location = this.args.user?.custom_fields?.posterlocation;
   }
 
   <template>
-    <i
-      class="fa fa-map-marker d-icon d-icon-map-marker"
-      aria-hidden="true"
-    ></i><span>{{this.location}}</span>
+    {{#if this.location}}    
+      <svg class="fa d-icon d-icon-map-marker svg-icon prefix-icon svg-string" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="#location-dot"></use></svg>
+      <span>{{this.location}}</span>
+    {{/if}}
+
   </template>
 }
 
