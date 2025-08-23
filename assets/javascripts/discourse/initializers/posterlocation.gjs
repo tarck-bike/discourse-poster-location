@@ -6,7 +6,7 @@ class PosterLocation extends Component {
   @tracked location = "";
   static shouldRender(args) {
     let result = "none";
-    console.log(args);
+    console.log(args, args.user, args.user?.custom_fields);
     if (
       args.user &&
       args.user.custom_fields &&
