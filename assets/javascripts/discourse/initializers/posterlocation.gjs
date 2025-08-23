@@ -8,11 +8,11 @@ class PosterLocation extends Component {
     let result = "none";
 
     if (
-      args.post?.user &&
-      args.post?.user.userCustomFields &&
-      args.post?.user.userCustomFields.posterlocation
+      args.user &&
+      args.user.custom_fields &&
+      args.post?.user.custom_fields.posterlocation
     ) {
-      result = args.post?.user.userCustomFields.posterlocation;
+      result = args.user.custom_fields.posterlocation;
     }
 
     if (!result || result === "none") {
