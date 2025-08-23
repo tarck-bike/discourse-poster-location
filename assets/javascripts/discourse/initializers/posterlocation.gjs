@@ -2,7 +2,6 @@ import Component from "@glimmer/component";
 import { withPluginApi } from "discourse/lib/plugin-api";
 
 class PosterLocation extends Component {
-  location = "";
   static shouldRender(args) {
     let result = "none";
 
@@ -21,8 +20,13 @@ class PosterLocation extends Component {
     return true;
   }
 
+  location = "";
+
   <template>
-    <i class="fa fa-map-marker d-icon d-icon-map-marker" aria-hidden="true"></i><span>{{location}}</span>
+    <i
+      class="fa fa-map-marker d-icon d-icon-map-marker"
+      aria-hidden="true"
+    ></i><span>{{location}}</span>
   </template>
 }
 

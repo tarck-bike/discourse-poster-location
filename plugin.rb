@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # name: discourse-poster-location
 # about: Show User's location in posts
 # version: 1.0.19
@@ -6,7 +8,10 @@
 
 enabled_site_setting :posterlocation_enabled
 
-PLUGIN_NAME = "discourse-posterlocation"
+
+module ::PosterLocationModule
+  PLUGIN_NAME = "discourse-posterlocation"
+end
 
 DiscoursePluginRegistry.serialized_current_user_fields << "posterlocation"
 after_initialize do
