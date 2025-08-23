@@ -6,11 +6,11 @@ class PosterLocation extends Component {
   @tracked location = "";
   static shouldRender(args) {
     let result = "none";
-
+    console.log(args);
     if (
       args.user &&
       args.user.custom_fields &&
-      args.post?.user.custom_fields.posterlocation
+      args.user.custom_fields.posterlocation
     ) {
       result = args.user.custom_fields.posterlocation;
     }
@@ -18,6 +18,7 @@ class PosterLocation extends Component {
     if (!result || result === "none") {
       return false;
     }
+    
     this.location = result;
     return true;
   }
