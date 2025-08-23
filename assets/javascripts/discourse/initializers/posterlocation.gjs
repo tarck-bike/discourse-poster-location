@@ -1,26 +1,11 @@
 import Component from "@glimmer/component";
-import { tracked } from "@glimmer/tracking";
 import { withPluginApi } from "discourse/lib/plugin-api";
 
 class PosterLocation extends Component {
-  @tracked location = "";
+  location = "";
   static shouldRender(args) {
-    let result = "none";
-    console.log(args, args.user, args.user?.custom_fields);
-    if (
-      args.user &&
-      args.user.custom_fields &&
-      args.user.custom_fields.posterlocation
-    ) {
-      result = args.user.custom_fields.posterlocation;
-    }
-
-    if (!result || result === "none") {
-      return false;
-    }
-    
-    this.location = result;
-    return true;
+     this.location = args.user?.custom_fields?.posterlocation ?? "none";
+     return this.location && this.location !== "none";
   }
 
   <template>
