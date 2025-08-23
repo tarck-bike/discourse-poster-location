@@ -13,7 +13,7 @@ class PosterLocation extends Component {
   <template>
     {{#if this.location}}    
       <svg class="fa d-icon d-icon-map-marker svg-icon prefix-icon svg-string" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="#location-dot"></use></svg>
-      <span>{{this.location}}</span>
+      <span class="user-title" style="font-size: 0.8rem; font-style: italic">{{this.location}}</span>
     {{/if}}
 
   </template>
