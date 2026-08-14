@@ -2,8 +2,8 @@
 
 # name: discourse-poster-location
 # about: Show User's location in posts
-# version: 1.0.21
-# author: Zach Nedwich <zach@znedw.com>
+# version: 1.0.22
+# authors: Zach Nedwich <zach@znedw.com>
 # url: https://github.com/tarck-bike/discourse-poster-location
 
 enabled_site_setting :posterlocation_enabled
