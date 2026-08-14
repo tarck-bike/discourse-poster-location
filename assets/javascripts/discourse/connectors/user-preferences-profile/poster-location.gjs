@@ -10,5 +10,5 @@ export default {
         </div>
       </div>
     {{/if}}
-  `
+  `,
 };

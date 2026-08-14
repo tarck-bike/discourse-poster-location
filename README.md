@@ -3,11 +3,12 @@
 Show User's location in posts
 
 ## Example
+
 ![](example.PNG)
 
 # Installing
 
-* Add the plugin's repo url to your container's `app.yml` file
+- Add the plugin's repo url to your container's `app.yml` file
 
 ```yml
 hooks:
@@ -20,14 +21,13 @@ hooks:
           - git clone https://github.com/tarck-bike/discourse-poster-location.git
 ```
 
-* Rebuild the container
+- Rebuild the container
 
 ```
 cd /var/discourse
 git pull
 ./launcher rebuild app
 ```
-
 
 See https://meta.discourse.org/t/install-a-plugin/19157/14
 
