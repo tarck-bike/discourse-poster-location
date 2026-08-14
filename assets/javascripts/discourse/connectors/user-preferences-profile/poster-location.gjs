@@ -1,4 +1,5 @@
 import Component from "@glimmer/component";
+import { Input } from "@ember/component";
 import { service } from "@ember/service";
 
 export default class PosterLocationConnector extends Component {
